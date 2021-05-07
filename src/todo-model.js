@@ -5,7 +5,7 @@ const CreateTodo = (title, description, dueDate, priority, status = false) => {
   let _priority = priority;
   let _status = status;
   const getTitle = () => {
-    return this._title;
+    return _title;
   };
   return { getTitle };
 };
