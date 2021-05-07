@@ -1,0 +1,26 @@
+{
+  "name": "to-do-list-app",
+  "version": "1.0.0",
+  "description": "To do list application written in javascript with node and webpack",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AymanJabr/To-do-list-app.git"
+  },
+  "author": "Ayman Jabr, Zil Norvilis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AymanJabr/To-do-list-app/issues"
+  },
+  "homepage": "https://github.com/AymanJabr/To-do-list-app#readme",
+  "devDependencies": {
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0"
+  }
+}
