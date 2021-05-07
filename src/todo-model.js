@@ -5,9 +5,6 @@ function createTodo(title, description, dueDate, priority, status = false) {
     dueDate: dueDate,
     priority: priority,
     status: status,
-    getTitle() {
-      return this.title;
-    },
   };
 }
 
