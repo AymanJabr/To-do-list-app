@@ -1,1 +1,1 @@
-document.getElementById("body").innerHTML="Hi there my name is ayman, and I have Zil with me";
+(()=>{"use strict";let e=((e,t,l,s,g=!1)=>{let i="sdfsdf";return{getTitle:()=>i}})();console.log(e.getTitle())})();
