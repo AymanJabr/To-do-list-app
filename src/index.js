@@ -1,3 +1,4 @@
-let mybody = document.getElementById("body")
+import CreateTodo from "./todo-model";
 
-mybody.innerHTML = "Hi there my name is ayman and I have Zil with me"
+let obj = CreateTodo("sdfsdf", "afadfs", "2020-12-02", 1);
+console.log(obj.getTitle());
