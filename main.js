@@ -1,1 +1,0 @@
-(()=>{"use strict";let e=((e,t,l,s,g=!1)=>{let i="sdfsdf";return{getTitle:()=>i}})();console.log(e.getTitle())})();
