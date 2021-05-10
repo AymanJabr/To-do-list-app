@@ -17,6 +17,7 @@ const insertAllProjects = (recreatePage = false) => {
     )[0];
 
     project.getTodos().forEach((todo) => {
+      console.log("my todo", todo.getTitle())
       let project_todo = `
         <div class="todo">
           <span class="todo-title">${todo.getTitle()}</span>

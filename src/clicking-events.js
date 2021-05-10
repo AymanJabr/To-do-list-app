@@ -1,5 +1,4 @@
 import createProject from "./project-model";
-// import {getTodoByTitle} from './project-model'
 import createTodo from "./todo-model";
 import app from "./app-model";
 import insertAllProjects from "./dom-manipulation";
@@ -52,7 +51,6 @@ let clickingEvents = () => {
   let my_array = [...all_nodes];
   my_array.forEach((button) => {
     button.addEventListener("click", () => {
-      // console.log("clicked on button")
 
       button.parentElement.parentElement.classList.toggle("todo-completed");
       let myProjectTitle =
@@ -64,39 +62,17 @@ let clickingEvents = () => {
       let myTodo = myProject.getTodoByTitle(myTodoTitle);
       myTodo.toggleStatus();
 
-      // console.log(myProject)
-
       insertAllProjects();
-
-      // let myParent = button.parentElement.parentElement.parentElement.parentElement.childNodes[2]
-      // console.log(myParent)
-      // myParent.style.display = "block";
 
       document
         .querySelectorAll(".project-todos > .todo > .todo-title")
         .forEach((project) => {
           let myParent = project.parentElement.parentElement;
-          // console.log(project.innerText)
           if (project.innerText == myTodoTitle) {
-            // myParent.classList.toggle('todo-completed')
-            // console.log(myParent)
             myParent.classList.add("display-block");
           }
         });
 
-      // await addAllProjects.then(() => {
-
-      // })
-
-      // Wait for Particular Project Div to be clicked on
-      // let project_divs = document.querySelectorAll(".project-title");
-      // project_divs.forEach((div, index) => {
-      //     div.onclick = () => {
-      //         let todos_div = document.querySelectorAll(`.project-${index}-todos`)[0];
-      //         todos_div.style.display =
-      //             todos_div.style.display == "none" ? "block" : "none";
-      //     };
-      // });
     });
   });
 
@@ -104,7 +80,6 @@ let clickingEvents = () => {
   my_array = [...all_nodes];
   my_array.forEach((button) => {
     button.addEventListener("click", () => {
-      // console.log("clicked on button")
 
       let myProjectTitle =
         button.parentElement.parentElement.parentElement.parentElement
@@ -118,40 +93,76 @@ let clickingEvents = () => {
     });
   });
 
+
+  let my_info = {}
+
   let todo_divs = document.querySelectorAll(".todo-title").forEach((div) => {
     div.onclick = (e) => {
       let modal = document.getElementById("editTodoModal");
       modal.style.display = "block";
 
       let projectTitle =
-        div.parentElement.parentElement.parentElement.firstChild.firstChild
-          .innerText;
+        div.parentElement.parentElement.parentElement.firstChild.firstChild.innerText;
+
       let this_project = app.getProjectByTitle(projectTitle);
-      console.log(this_project);
+      my_info['this_project'] = this_project
+    //   console.log(this_project);
       let todo_data = this_project.getTodoByTitle(div.innerHTML);
-      let updated_title = document.getElementById("edit-todo-title").value;
-      updated_title = todo_data.getTitle();
-      let updated_description = document.getElementById("edit-todo-desc").value;
-      updated_description = todo_data.getDescription();
-      let updated_due_date = document.getElementById("edit-todo-due-date")
-        .value;
-      updated_due_date = todo_data.getDueDate();
-      let updated_priority = document.getElementById("edit-todo-priority")
-        .value;
-      updated_priority = todo_data.getPriority();
+        // console.log(todo_data.getTitle())
+      my_info['todo_data'] = todo_data
+    //   console.log(todo_data.getTitle())
+
+        // console.log("we are here")
+      let updated_title = document.getElementById("edit-todo-title");
+      updated_title.value = todo_data.getTitle();
+    //   console.log(updated_title)
+      my_info['updated_title'] = updated_title.value
+      let updated_description = document.getElementById("edit-todo-desc");
+      updated_description.value = todo_data.getDescription();
+      my_info['updated_description'] = updated_description.value
+      let updated_due_date = document.getElementById("edit-todo-due-date");
+      updated_due_date.value = todo_data.getDueDate();
+      my_info['updated_due_date'] = updated_due_date.value
+      let updated_priority = document.getElementById("edit-todo-priority");
+        updated_priority.value = todo_data.getPriority();
+        my_info['updated_priority'] = updated_priority.value
     };
   });
 
   document.getElementById("submit-edit-todo").onclick = () => {
+
+    // console.log(my_info)
+
+    // let this_project = my_info['this_project']
+    let todo_data = my_info['todo_data']
+    let updated_title = my_info['updated_title']
+    // console.log(updated_title)
+    let updated_description = my_info['updated_description']
+    let updated_due_date = my_info['updated_due_date']
+    let updated_priority = my_info['updated_priority']
+
+
+      let this_project = app.getProjectByTitle(my_info['this_project'].getTitle())
+
+    console.log(todo_data.getTitle(), updated_title)
     this_project.removeTodoByTitle(todo_data.getTitle());
-    this_project.addTodo(
-      createTodo(
-        updated_title,
-        updated_description,
-        updated_due_date,
-        updated_priority
+      let new_to_do = createTodo(
+          updated_title,
+          updated_description,
+          updated_due_date,
+          updated_priority
       )
-    );
+      console.log(new_to_do)
+    this_project.addTodo( new_to_do);
+
+    console.log(this_project.getTodos())
+
+    let modal = document.getElementById("editTodoModal");
+    modal.style.display = "none";
+
+    console.log()
+
+    insertAllProjects()
   };
 
   insertModal();
