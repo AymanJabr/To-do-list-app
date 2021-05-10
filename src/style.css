@@ -65,6 +65,10 @@ body {
   font-weight: 500;
 }
 
+.todo-title:hover {
+  cursor: pointer;
+}
+
 .add-project {
   margin-top: 1rem;
   width: 100%;

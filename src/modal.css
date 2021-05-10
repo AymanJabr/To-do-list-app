@@ -13,7 +13,8 @@
 }
 
 /* Modal Content/Box */
-.modal-content {
+.modal-content,
+.edit-modal-content {
   background-color: #fefefe;
   margin: 5% auto; /* 15% from the top and centered */
   padding: 20px;
@@ -22,7 +23,8 @@
 }
 
 /* The Close Button */
-.close {
+.close,
+.edit-close {
   color: #aaa;
   float: right;
   font-size: 28px;
@@ -36,13 +38,15 @@
   cursor: pointer;
 }
 
-.modal-body {
+.modal-body,
+.edit-modal-body {
   display: flex;
   flex-direction: column;
   font-size: 1.5rem;
 }
 
-.modal-body h3 {
+.modal-body h3,
+.edit-modal-body h3 {
   font-size: 2.5rem;
 }
 

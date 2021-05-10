@@ -44,7 +44,33 @@
             <button class="submit-new-todo">Add</button>
         </div>
     </div>
+</div>
 
+<!-- Modal for editEdit -->
+<div id="editTodoModal" class="modal">
+    <!-- Modal content -->
+    <div class="edit-modal-content">
+        <span class="edit-close">&times;</span>
+        <div class="edit-modal-body">
+            <h3>Edit ToDo</h3>
+            <div class="input-group">
+                <input type="text" placeholder="Task Name" id="edit-todo-title">
+            </div>
+            <div class="input-group">
+                <textarea id=edit-todo-desc>Description
+                    </textarea>
+            </div>
+            <div class="input-group">
+                <label for="due-date">Due Date</label>
+                <input type="date" placeholder="Due Date" id="edit-todo-due-date">
+            </div>
+            <div class="input-group">
+                <label for="priority">Priority</label>
+                <input type="number" min="0" max="10" placeholder="0" id="edit-todo-priority">
+            </div>
+            <button class="submit-edit-todo">Update</button>
+        </div>
+    </div>
 </div>
 
 </html>
