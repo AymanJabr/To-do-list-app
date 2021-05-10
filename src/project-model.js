@@ -1,8 +1,8 @@
 function createProject(title) {
-  title = title;
-  todos = [];
+  let _title = title;
+  let todos = [];
 
-  return { title };
+  return { _title };
 }
 
 export default createProject;

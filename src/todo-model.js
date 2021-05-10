@@ -1,4 +1,4 @@
-const CreateTodo = (title, description, dueDate, priority, status = false) => {
+const createTodo = (title, description, dueDate, priority, status = false) => {
   let _title = title;
   let _description = description;
   let _dueDate = dueDate;
@@ -10,4 +10,4 @@ const CreateTodo = (title, description, dueDate, priority, status = false) => {
   return { getTitle };
 };
 
-export default CreateTodo;
+export default createTodo;
