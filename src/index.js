@@ -6,6 +6,10 @@ import "./style.css";
 
 // let CreateTodo = require('./todo-model')
 
-app.addProject(createProject("default", "default project"));
+let newProject = createProject("default", "default project")
+let newTodo = createTodo("my title", "my description ", "my due-date", 1)
+newProject.addTodo(newTodo)
+app.addProject(newProject);
+
 
 insertAllProjects();

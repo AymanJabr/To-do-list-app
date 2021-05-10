@@ -7,7 +7,28 @@ const createTodo = (title, description, dueDate, priority, status = false) => {
   const getTitle = () => {
     return _title;
   };
-  return { getTitle };
+  const getDueDate = () => {
+    let dueDate;
+    if (_status == true) {
+      dueDate = "Completed!";
+    } else {
+      dueDate = _dueDate;
+    }
+    return dueDate;
+  };
+  const toggleStatus = () => {
+    if (_status == false) {
+      _status = true;
+    } else {
+      _status = false;
+    }
+  };
+  const getPriority = () => {
+    return _priority;
+  };
+  const changePriority = (new_priority) => {
+    _priority = new_priority;
+  };
+  return { getPriority, changePriority, getTitle, getDueDate, toggleStatus };
 };
-
 export default createTodo;
