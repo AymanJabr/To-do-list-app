@@ -48,8 +48,8 @@ body {
   font-weight: 700;
 }
 
-.todo-completed {
-  background-color: greenyellow;
+.display-block {
+  display: block !important;
 }
 
 .todo {
