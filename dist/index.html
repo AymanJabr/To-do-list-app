@@ -19,4 +19,32 @@
 
 </body>
 
+<!-- The Modal -->
+<div id="newTodoModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-body">
+            <h3>Add ToDo</h3>
+            <div class="input-group">
+                <input type="text" placeholder="Task Name" id="todo-title">
+            </div>
+            <div class="input-group">
+                <textarea id=todo-desc>Description
+                    </textarea>
+            </div>
+            <div class="input-group">
+                <label for="due-date">Due Date</label>
+                <input type="date" placeholder="Due Date" id="todo-due-date">
+            </div>
+            <div class="input-group">
+                <label for="priority">Priority</label>
+                <input type="number" min="0" max="10" placeholder="0" id="todo-priority">
+            </div>
+            <button class="submit-new-todo">Add</button>
+        </div>
+    </div>
+
+</div>
+
 </html>

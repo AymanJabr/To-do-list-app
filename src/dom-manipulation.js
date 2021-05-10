@@ -1,5 +1,5 @@
 import app from "./app-model";
-import clickingEvents from './clicking-events'
+import clickingEvents from "./clicking-events";
 
 const insertAllProjects = () => {
   let projects_div = document.getElementById("projects");
@@ -36,10 +36,7 @@ const insertAllProjects = () => {
   `;
   projects_div.innerHTML += new_project_div;
 
-
-  clickingEvents()
-  
-  
+  clickingEvents();
 };
 
-export default insertAllProjects ;
+export default insertAllProjects;
