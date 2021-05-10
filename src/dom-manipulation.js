@@ -1,7 +1,7 @@
 import app from "./app-model";
 import clickingEvents from "./clicking-events";
 
-const insertAllProjects = (recreatePage) => {
+const insertAllProjects = (recreatePage = false) => {
   let projects_div = document.getElementById("projects");
   projects_div.innerHTML = "";
   app.getProjects().forEach((project, index) => {
@@ -36,7 +36,7 @@ const insertAllProjects = (recreatePage) => {
   `;
   projects_div.innerHTML += new_project_div;
 
-  clickingEvents();
+  clickingEvents(recreatePage);
 };
 
 export default insertAllProjects;

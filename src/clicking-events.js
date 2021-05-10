@@ -63,6 +63,21 @@ let clickingEvents = () => {
             myTodo.toggleStatus()
 
             insertAllProjects();
+
+
+            let myParent = button.parentElement.parentElement.parentElement.parentElement.childNodes[2]
+            console.log(myParent)
+            myParent.style.display = "block";
+
+            // Wait for Particular Project Div to be clicked on
+            // let project_divs = document.querySelectorAll(".project-title");
+            // project_divs.forEach((div, index) => {
+            //     div.onclick = () => {
+            //         let todos_div = document.querySelectorAll(`.project-${index}-todos`)[0];
+            //         todos_div.style.display =
+            //             todos_div.style.display == "none" ? "block" : "none";
+            //     };
+            // });
         })
     })
 
