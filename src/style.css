@@ -46,7 +46,10 @@ body {
 .project-title {
   font-size: 3rem;
   font-weight: 700;
-  text-transform: uppercase;
+}
+
+.todo-completed {
+  background-color: greenyellow;
 }
 
 .todo {

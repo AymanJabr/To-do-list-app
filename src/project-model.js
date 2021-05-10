@@ -10,11 +10,23 @@ function createProject(title) {
     todos.push(todo);
   };
 
+  const getTodoByTitle = (todoTitle) => {
+    let myTodo
+    todos.forEach(todo => {
+      if (todo.getTitle() == todoTitle) {
+        // console.log(todo)
+        myTodo = todo
+      }
+    })
+    return myTodo
+  }
+
   const getTodos = () => {
     return todos;
   };
 
-  return { getTitle, addTodo, getTodos };
+  return { getTitle, addTodo, getTodos, getTodoByTitle };
 }
 
 export default createProject;
+// export {getTodoByTitle}

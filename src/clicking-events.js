@@ -1,4 +1,5 @@
 import createProject from "./project-model";
+// import {getTodoByTitle} from './project-model'
 import createTodo from "./todo-model";
 import app from "./app-model";
 import insertAllProjects from "./dom-manipulation";
@@ -46,6 +47,39 @@ let clickingEvents = () => {
       )[0].style.display = "block";
     };
   });
+
+
+    let all_nodes = document.querySelectorAll(".todo-completed-button")
+    let my_array = [...all_nodes]
+    my_array.forEach( button => {
+        button.addEventListener('click', () => {
+            // console.log("clicked on button")
+
+            button.parentElement.parentElement.classList.add("todo-completed")
+            let myProjectTitle = button.parentElement.parentElement.parentElement.parentElement.firstChild.firstChild.innerText
+            let myTodoTitle = (button.parentElement.parentElement.childNodes[1].innerHTML)
+            let myProject = app.getProjectByTitle(myProjectTitle)
+            let myTodo =  myProject.getTodoByTitle(myTodoTitle)
+            myTodo.toggleStatus()
+
+            insertAllProjects();
+        })
+    })
+
+
+
+    let all_nodes = document.querySelectorAll(".todo-completed-button")
+    let my_array = [...all_nodes]
+    my_array.forEach(button => {
+        button.addEventListener('click', () => {
+            // console.log("clicked on button")
+
+            insertAllProjects();
+        })
+    })
+
+
+
 
   insertModal();
 };

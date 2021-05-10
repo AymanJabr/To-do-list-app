@@ -20,7 +20,7 @@ const insertAllProjects = () => {
       let project_todo = `
         <div class="todo">
           <span class="todo-title">${todo.getTitle()}</span>
-          <span class="todo-buttons"><button>Done</button><button>X</button></span>
+          <span class="todo-buttons"><button class="todo-completed-button">Done</button><button>X</button></span>
           <span class="todo-due-date">Due: ${todo.getDueDate()}</span>
         </div>
         `;

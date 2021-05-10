@@ -7,9 +7,10 @@ import "./modal.css";
 
 // let CreateTodo = require('./todo-model')
 
-let newProject = createProject("default", "default project");
+let newProject = createProject("DEFAULT", "default project");
 let newTodo = createTodo("my title", "my description ", "my due-date", 1);
 newProject.addTodo(newTodo);
+// console.log(newProject.getTodos())
 app.addProject(newProject);
 
 insertAllProjects();
