@@ -5,4 +5,4 @@ function createProject(title) {
   return { title };
 }
 
-export default createTodo;
+export default createProject;

@@ -14,5 +14,4 @@ function createApp() {
 
 var app = createApp();
 
-export default createApp;
-export { app };
+export default app;

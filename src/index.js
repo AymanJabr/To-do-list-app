@@ -1,5 +1,7 @@
+import createProject from "./project-model";
 import CreateTodo from "./todo-model";
+import app from "./app-model";
+
 // let CreateTodo = require('./todo-model')
 
-let obj = CreateTodo("sdfsdf", "afadfs", "2020-12-02", 1);
-console.log(obj.getTitle());
+app.addProject(CreateProject("default", "default project"));
