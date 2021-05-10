@@ -42,4 +42,4 @@ const insertAllProjects = () => {
   
 };
 
-export { insertAllProjects };
+export default insertAllProjects ;

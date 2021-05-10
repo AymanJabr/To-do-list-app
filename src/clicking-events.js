@@ -1,3 +1,7 @@
+import createProject from "./project-model";
+import app from "./app-model";
+import insertAllProjects from './dom-manipulation'
+
 let clickingEvents = () => {
 
     // Wait for Create Project Button to be clicked
@@ -7,7 +11,7 @@ let clickingEvents = () => {
     create_project_button.onclick = () => {
         let title = document.getElementById("new-project-title").value;
         if (title != "") {
-            let new_project = CreateProject(title);
+            let new_project = createProject(title);
             app.addProject(new_project);
             insertAllProjects();
         }
