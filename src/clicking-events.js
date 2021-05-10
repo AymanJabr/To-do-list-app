@@ -68,11 +68,16 @@ let clickingEvents = () => {
 
 
 
-    let all_nodes = document.querySelectorAll(".todo-completed-button")
-    let my_array = [...all_nodes]
+    all_nodes = document.querySelectorAll(".todo-remove-button")
+    my_array = [...all_nodes]
     my_array.forEach(button => {
         button.addEventListener('click', () => {
             // console.log("clicked on button")
+
+            let myProjectTitle = button.parentElement.parentElement.parentElement.parentElement.firstChild.firstChild.innerText
+            let myTodoTitle = (button.parentElement.parentElement.childNodes[1].innerHTML)
+            let myProject = app.getProjectByTitle(myProjectTitle)
+            myProject.removeTodoByTitle(myTodoTitle)
 
             insertAllProjects();
         })

@@ -1,7 +1,7 @@
 import app from "./app-model";
 import clickingEvents from "./clicking-events";
 
-const insertAllProjects = () => {
+const insertAllProjects = (recreatePage) => {
   let projects_div = document.getElementById("projects");
   projects_div.innerHTML = "";
   app.getProjects().forEach((project, index) => {
@@ -20,7 +20,7 @@ const insertAllProjects = () => {
       let project_todo = `
         <div class="todo">
           <span class="todo-title">${todo.getTitle()}</span>
-          <span class="todo-buttons"><button class="todo-completed-button">Done</button><button>X</button></span>
+          <span class="todo-buttons"><button class="todo-completed-button">Done</button><button class="todo-remove-button">X</button></span>
           <span class="todo-due-date">Due: ${todo.getDueDate()}</span>
         </div>
         `;

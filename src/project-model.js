@@ -10,6 +10,14 @@ function createProject(title) {
     todos.push(todo);
   };
 
+  const removeTodoByTitle = (todoTitle) => {
+    todos.forEach((todo, index) => {
+      if (todo.getTitle() == todoTitle) {
+        todos.splice(index, 1)
+      }
+    })
+  } 
+
   const getTodoByTitle = (todoTitle) => {
     let myTodo
     todos.forEach(todo => {
@@ -25,7 +33,7 @@ function createProject(title) {
     return todos;
   };
 
-  return { getTitle, addTodo, getTodos, getTodoByTitle };
+  return { getTitle, addTodo, getTodos, getTodoByTitle, removeTodoByTitle };
 }
 
 export default createProject;
