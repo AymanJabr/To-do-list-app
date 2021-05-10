@@ -126,21 +126,33 @@ let clickingEvents = () => {
       let projectTitle =
         div.parentElement.parentElement.parentElement.firstChild.firstChild
           .innerText;
-      let todo_data = app
-        .getProjectByTitle(projectTitle)
-        .getTodoByTitle(div.innerHTML);
-      document.getElementById("edit-todo-title").value = todo_data.getTitle();
-      document.getElementById(
-        "edit-todo-desc"
-      ).value = todo_data.getDescription();
-      document.getElementById(
-        "edit-todo-due-date"
-      ).value = todo_data.getDueDate();
-      document.getElementById(
-        "edit-todo-priority"
-      ).value = todo_data.getPriority();
+      let this_project = app.getProjectByTitle(projectTitle);
+      console.log(this_project);
+      let todo_data = this_project.getTodoByTitle(div.innerHTML);
+      let updated_title = document.getElementById("edit-todo-title").value;
+      updated_title = todo_data.getTitle();
+      let updated_description = document.getElementById("edit-todo-desc").value;
+      updated_description = todo_data.getDescription();
+      let updated_due_date = document.getElementById("edit-todo-due-date")
+        .value;
+      updated_due_date = todo_data.getDueDate();
+      let updated_priority = document.getElementById("edit-todo-priority")
+        .value;
+      updated_priority = todo_data.getPriority();
     };
   });
+
+  document.getElementById("submit-edit-todo").onclick = () => {
+    this_project.removeTodoByTitle(todo_data.getTitle());
+    this_project.addTodo(
+      createTodo(
+        updated_title,
+        updated_description,
+        updated_due_date,
+        updated_priority
+      )
+    );
+  };
 
   insertModal();
 };
