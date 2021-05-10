@@ -1,4 +1,5 @@
 import createProject from "./project-model";
+import createTodo from "./todo-model";
 import app from "./app-model";
 import insertAllProjects from "./dom-manipulation";
 import insertModal from "./modal";
@@ -35,7 +36,7 @@ let clickingEvents = () => {
       let description = document.getElementById("todo-desc").value;
       let dueDate = document.getElementById("todo-due-date").value;
       let priority = document.getElementById("todo-priority").value;
-      let todo = CreateTodo(title, description, dueDate, priority);
+      let todo = createTodo(title, description, dueDate, priority);
       app.getProjects()[button.id].addTodo(todo);
 
       document.getElementById("newTodoModal").style.display = "none";
