@@ -1,7 +1,7 @@
 # To-Do-List
-In this project we created a simple library logging website, where you can add books to the library, remove books, and set the books that you have to read/unread.
+Simple To-Do-List, using Node and Webpack functionality, In this project you have the ability to add projects, add tasks that you have to do to a project, including its description, date to be done, and priority.  
 
-The library is stored in the browser's localStorage, so that it persists between sessions, and browser closure.
+[Screenshot](./assets/screenshot.JPG)
 
 ## Built With
 
@@ -24,7 +24,7 @@ To get a local copy up and running follow these simple example steps.
 
 double click on  `index.html` to open project in new browser window
 
-## AUTHORs
+## AUTHORS
 
 **ZIL NORVILIS**
 
