@@ -1,26 +1,20 @@
 const createTodo = (title, description, dueDate, priority, status = false) => {
-  let _title = title;
-  let _description = description;
-  let _dueDate = dueDate;
+  const _title = title;
+  const _description = description;
+  const _dueDate = dueDate;
   let _priority = priority;
   let _status = status;
 
-  const getTitle = () => {
-    return _title;
-  };
+  const getTitle = () => _title;
 
-  const getDescription = () => {
-    return _description;
-  };
+  const getDescription = () => _description;
 
-  const getPriority = () => {
-    return _priority;
-  };
+  const getPriority = () => _priority;
 
   const getDueDate = () => {
     let dueDate;
     if (_status == true) {
-      dueDate = "Completed!";
+      dueDate = 'Completed!';
     } else {
       dueDate = _dueDate;
     }

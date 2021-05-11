@@ -1,6 +1,7 @@
 html {
   font-size: 62.5%;
 }
+
 *,
 *::before,
 *::after {
@@ -8,11 +9,13 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: Gotham, Helvetica, "Times New Roman", Times, serif;
   margin: 0;
   background-color: whitesmoke;
 }
+
 .content {
   padding: 2rem;
   margin: 2rem;
@@ -32,6 +35,11 @@ body {
   margin-bottom: 1rem;
 }
 
+.project-title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
 .project-title:hover {
   cursor: pointer;
 }
@@ -41,11 +49,6 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-}
-
-.project-title {
-  font-size: 3rem;
-  font-weight: 700;
 }
 
 .display-block {
@@ -85,6 +88,7 @@ body {
   font-weight: 700;
   border: none;
 }
+
 .add-project input:focus {
   outline-width: 0;
 }
