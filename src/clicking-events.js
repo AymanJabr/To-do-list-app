@@ -6,8 +6,9 @@ import insertAllProjects from './dom-manipulation';
 import insertModal from './modal';
 /* eslint-enable import/no-cycle */
 
+console.log('app is in fact', app);
+
 const clickingEvents = () => {
-  // Wait for Create Project Button to be clicked
   const createProjectButton = document.getElementsByClassName(
     'add-project-button',
   )[0];
@@ -16,11 +17,11 @@ const clickingEvents = () => {
     if (title !== '') {
       const newProject = createProject(title);
       app.addProject(newProject);
-      insertAllProjects();
+      console.log(app.getProjects(), JSON.stringify(app.getProjects()));
+      localStorage.setItem('projects', JSON.stringify(app.getProjects()));
     }
   };
 
-  // Wait for Particular Project Div to be clicked on
   const projectDivs = document.querySelectorAll('.project-title');
   projectDivs.forEach((div, index) => {
     div.onclick = () => {
@@ -29,7 +30,6 @@ const clickingEvents = () => {
     };
   });
 
-  // Wait for submit new todo modal button clicked
   const submitButtons = document.querySelectorAll('.submit-new-todo');
   submitButtons.forEach((button) => {
     button.onclick = () => {
@@ -39,6 +39,8 @@ const clickingEvents = () => {
       const priority = document.getElementById('todo-priority').value;
       const todo = createTodo(title, description, dueDate, priority);
       app.getProjects()[button.id].addTodo(todo);
+      console.log(app.getProjects(), JSON.stringify(app.getProjects()));
+      localStorage.setItem('projects', JSON.stringify(app.getProjects()));
 
       document.getElementById('newTodoModal').style.display = 'none';
       insertAllProjects();
@@ -137,6 +139,8 @@ const clickingEvents = () => {
       updatedPriority,
     );
     thisProject.addTodo(newToDo);
+    console.log(app.getProjects(), JSON.stringify(app.getProjects()));
+    localStorage.setItem('projects', JSON.stringify(app.getProjects()));
 
     const modal = document.getElementById('editTodoModal');
     modal.style.display = 'none';

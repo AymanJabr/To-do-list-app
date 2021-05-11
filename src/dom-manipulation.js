@@ -38,7 +38,7 @@ const insertAllProjects = (recreatePage = false) => {
   `;
   projectsDiv.innerHTML += newProjectDiv;
 
-  clickingEvents(recreatePage);
+  clickingEvents();
 };
 
 export default insertAllProjects;

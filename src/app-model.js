@@ -1,11 +1,15 @@
 function createApp() {
-  const projects = [];
+  let projects = [];
 
   const addProject = (project) => {
     projects.push(project);
   };
 
   const getProjects = () => projects;
+
+  const setProjects = (newProjects) => {
+    projects = newProjects;
+  };
 
   const getProjectByTitle = (projectTitle) => {
     let thisProject;
@@ -17,9 +21,13 @@ function createApp() {
     return thisProject;
   };
 
-  return { addProject, getProjects, getProjectByTitle };
+  return {
+    addProject, getProjects, getProjectByTitle, setProjects,
+  };
 }
+const myProjects = JSON.parse(localStorage.getItem('projects'));
 
 const app = createApp();
+if (myProjects !== null) app.setProjects(myProjects);
 
 export default app;

@@ -20,7 +20,6 @@ function createProject(title) {
     let myTodo;
     todos.forEach((todo) => {
       if (todo.getTitle() === todoTitle) {
-        // console.log(todo)
         myTodo = todo;
       }
     });
@@ -35,4 +34,3 @@ function createProject(title) {
 }
 
 export default createProject;
-// export {getTodoByTitle}
