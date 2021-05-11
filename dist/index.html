@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./main.js" defer></script>
+</head>
+
+<body>
+    <div class="content">
+        <div id="projects"></div>
+        <div id="new-project"></div>
+        <div id="new-todo"></div>
+        <div id="all-todos"></div>
+    </div>
+
+</body>
+
+<!-- The Modal -->
+<div id="newTodoModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-body">
+            <h3>Add ToDo</h3>
+            <div class="input-group">
+                <input type="text" placeholder="Task Name" id="todo-title">
+            </div>
+            <div class="input-group">
+                <textarea id=todo-desc>Description
+                    </textarea>
+            </div>
+            <div class="input-group">
+                <label for="due-date">Due Date</label>
+                <input type="date" placeholder="Due Date" id="todo-due-date">
+            </div>
+            <div class="input-group">
+                <label for="priority">Priority</label>
+                <input type="number" min="0" max="10" placeholder="0" id="todo-priority">
+            </div>
+            <button class="submit-new-todo">Add</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for editEdit -->
+<div id="editTodoModal" class="modal">
+    <!-- Modal content -->
+    <div class="edit-modal-content">
+        <span class="edit-close">&times;</span>
+        <div class="edit-modal-body">
+            <h3>Edit ToDo</h3>
+            <div class="input-group">
+                <input type="text" placeholder="Task Name" id="edit-todo-title">
+            </div>
+            <div class="input-group">
+                <textarea id=edit-todo-desc>Description
+                    </textarea>
+            </div>
+            <div class="input-group">
+                <label for="due-date">Due Date</label>
+                <input type="date" placeholder="Due Date" id="edit-todo-due-date">
+            </div>
+            <div class="input-group">
+                <label for="priority">Priority</label>
+                <input type="number" min="0" max="10" placeholder="0" id="edit-todo-priority">
+            </div>
+            <button id="submit-edit-todo">Update</button>
+        </div>
+    </div>
+</div>
+
+</html>
