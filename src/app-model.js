@@ -1,5 +1,3 @@
-import { turnToData } from './turn-to-json';
-
 function createApp() {
   let projects = [];
 
@@ -23,13 +21,24 @@ function createApp() {
     return thisProject;
   };
 
+  const removeProjectByTitle = (projectTitle) => {
+    projects.forEach((project, index) => {
+      if (project.getTitle() === projectTitle) {
+        projects.splice(index, 1);
+      }
+    });
+  };
+
   return {
-    addProject, getProjects, getProjectByTitle, setProjects,
+    addProject,
+    getProjects,
+    getProjectByTitle,
+    setProjects,
+    removeProjectByTitle,
   };
 }
-const myProjects = JSON.parse(localStorage.getItem('projects'));
 
+// console.log(myApp);
 const app = createApp();
-if (myProjects !== null) turnToData();
 
 export default app;

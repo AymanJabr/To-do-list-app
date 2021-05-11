@@ -1,4 +1,7 @@
-import app from './app-model';
+import app from "./app-model";
+import createProject from "./project-model";
+
+import createTodo from "./todo-model";
 
 const turnToJson = () => {
   const myJsonData = {};
@@ -34,13 +37,29 @@ const turnToJson = () => {
     myJsonData[project.getTitle()] = myProject;
   });
 
-  localStorage.setItem('app', myJsonData);
+  localStorage.setItem("app", JSON.stringify(myJsonData));
 
-  console.log(myJsonData);
+  // console.log(myJsonData);
 };
 
-const turnToData = () => {
-  console.log('turning to data');
+const turnToData = (myApp) => {
+  app.removeProjectByTitle("DEFAULT");
+  for (const project in myApp) {
+    console.log(`${project}: ${myApp[project]}`);
+    let new_project = createProject(project);
+    for (const todo in myApp[project].todos) {
+      let todoObj = myApp[project].todos[todo];
+      console.log(todoObj);
+      let new_todo = createTodo(
+        todoObj.title,
+        todoObj.description,
+        todoObj.dueDate,
+        todoObj.priority
+      );
+      new_project.addTodo(new_todo);
+    }
+    app.addProject(new_project);
+  }
 };
 
 export { turnToJson, turnToData };
