@@ -106,16 +106,14 @@ let clickingEvents = () => {
 
       let this_project = app.getProjectByTitle(projectTitle);
       my_info['this_project'] = this_project
-    //   console.log(this_project);
+      
       let todo_data = this_project.getTodoByTitle(div.innerHTML);
-        // console.log(todo_data.getTitle())
+      
       my_info['todo_data'] = todo_data
-    //   console.log(todo_data.getTitle())
-
-        // console.log("we are here")
+      
       let updated_title = document.getElementById("edit-todo-title");
       updated_title.value = todo_data.getTitle();
-    //   console.log(updated_title)
+      
       my_info['updated_title'] = updated_title.value
       let updated_description = document.getElementById("edit-todo-desc");
       updated_description.value = todo_data.getDescription();
@@ -130,19 +128,17 @@ let clickingEvents = () => {
   });
 
   document.getElementById("submit-edit-todo").onclick = () => {
-
-    // console.log(my_info)
-
-    // let this_project = my_info['this_project']
+    
+    let this_project = app.getProjectByTitle(my_info['this_project'].getTitle())
     let todo_data = my_info['todo_data']
-    let updated_title = my_info['updated_title']
-    // console.log(updated_title)
-    let updated_description = my_info['updated_description']
-    let updated_due_date = my_info['updated_due_date']
-    let updated_priority = my_info['updated_priority']
 
 
-      let this_project = app.getProjectByTitle(my_info['this_project'].getTitle())
+    let updated_title = document.getElementById("edit-todo-title").value;
+    let updated_description = document.getElementById("edit-todo-desc").value;
+    let updated_due_date = document.getElementById("edit-todo-due-date").value;
+    let updated_priority = document.getElementById("edit-todo-priority").value;
+
+
 
     console.log(todo_data.getTitle(), updated_title)
     this_project.removeTodoByTitle(todo_data.getTitle());
@@ -160,9 +156,17 @@ let clickingEvents = () => {
     let modal = document.getElementById("editTodoModal");
     modal.style.display = "none";
 
-    console.log()
-
+    
     insertAllProjects()
+    
+    document.querySelectorAll(".project-todos > .todo > .todo-title")
+        .forEach((project) => {
+          let myParent = project.parentElement.parentElement;
+          if (project.innerText == updated_title) {
+            myParent.classList.add("display-block");
+          }
+        });
+
   };
 
   insertModal();
