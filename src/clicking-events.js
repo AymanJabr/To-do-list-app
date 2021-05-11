@@ -1,35 +1,37 @@
+/* eslint-disable import/no-cycle */
 import createProject from './project-model';
 import createTodo from './todo-model';
 import app from './app-model';
 import insertAllProjects from './dom-manipulation';
 import insertModal from './modal';
+/* eslint-enable import/no-cycle */
 
 const clickingEvents = () => {
   // Wait for Create Project Button to be clicked
-  const create_project_button = document.getElementsByClassName(
+  const createProjectButton = document.getElementsByClassName(
     'add-project-button',
   )[0];
-  create_project_button.onclick = () => {
+  createProjectButton.onclick = () => {
     const title = document.getElementById('new-project-title').value;
-    if (title != '') {
-      const new_project = createProject(title);
-      app.addProject(new_project);
+    if (title !== '') {
+      const newProject = createProject(title);
+      app.addProject(newProject);
       insertAllProjects();
     }
   };
 
   // Wait for Particular Project Div to be clicked on
-  const project_divs = document.querySelectorAll('.project-title');
-  project_divs.forEach((div, index) => {
+  const projectDivs = document.querySelectorAll('.project-title');
+  projectDivs.forEach((div, index) => {
     div.onclick = () => {
-      const todos_div = document.querySelectorAll(`.project-${index}-todos`)[0];
-      todos_div.style.display = todos_div.style.display == 'none' ? 'block' : 'none';
+      const todosDiv = document.querySelectorAll(`.project-${index}-todos`)[0];
+      todosDiv.style.display = todosDiv.style.display === 'none' ? 'block' : 'none';
     };
   });
 
   // Wait for submit new todo modal button clicked
-  const submit_buttons = document.querySelectorAll('.submit-new-todo');
-  submit_buttons.forEach((button) => {
+  const submitButtons = document.querySelectorAll('.submit-new-todo');
+  submitButtons.forEach((button) => {
     button.onclick = () => {
       const title = document.getElementById('todo-title').value;
       const description = document.getElementById('todo-desc').value;
@@ -46,9 +48,9 @@ const clickingEvents = () => {
     };
   });
 
-  let all_nodes = document.querySelectorAll('.todo-completed-button');
-  let my_array = [...all_nodes];
-  my_array.forEach((button) => {
+  let allNodes = document.querySelectorAll('.todo-completed-button');
+  let myArray = [...allNodes];
+  myArray.forEach((button) => {
     button.addEventListener('click', () => {
       button.parentElement.parentElement.classList.toggle('todo-completed');
       const myProjectTitle = button.parentElement.parentElement.parentElement.parentElement
@@ -64,16 +66,16 @@ const clickingEvents = () => {
         .querySelectorAll('.project-todos > .todo > .todo-title')
         .forEach((project) => {
           const myParent = project.parentElement.parentElement;
-          if (project.innerText == myTodoTitle) {
+          if (project.innerText === myTodoTitle) {
             myParent.classList.add('display-block');
           }
         });
     });
   });
 
-  all_nodes = document.querySelectorAll('.todo-remove-button');
-  my_array = [...all_nodes];
-  my_array.forEach((button) => {
+  allNodes = document.querySelectorAll('.todo-remove-button');
+  myArray = [...allNodes];
+  myArray.forEach((button) => {
     button.addEventListener('click', () => {
       const myProjectTitle = button.parentElement.parentElement.parentElement.parentElement
         .firstChild.firstChild.innerText;
@@ -85,59 +87,56 @@ const clickingEvents = () => {
     });
   });
 
-  const my_info = {};
+  const myInfo = {};
 
-  const todo_divs = document.querySelectorAll('.todo-title').forEach((div) => {
-    div.onclick = (e) => {
+  document.querySelectorAll('.todo-title').forEach((div) => {
+    div.onclick = () => {
       const modal = document.getElementById('editTodoModal');
       modal.style.display = 'block';
 
-      const projectTitle = div.parentElement.parentElement.parentElement.firstChild.firstChild.innerText;
+      const projectTitle1 = div.parentElement.parentElement.parentElement;
+      const projectTitle = projectTitle1.firstChild.firstChild.innerText;
 
-      const this_project = app.getProjectByTitle(projectTitle);
-      my_info.this_project = this_project;
+      const thisProject = app.getProjectByTitle(projectTitle);
+      myInfo.thisProject = thisProject;
 
-      const todo_data = this_project.getTodoByTitle(div.innerHTML);
+      const todoData = thisProject.getTodoByTitle(div.innerHTML);
 
-      my_info.todo_data = todo_data;
+      myInfo.todoData = todoData;
 
-      const updated_title = document.getElementById('edit-todo-title');
-      updated_title.value = todo_data.getTitle();
+      const updatedTitle = document.getElementById('edit-todo-title');
+      updatedTitle.value = todoData.getTitle();
 
-      my_info.updated_title = updated_title.value;
-      const updated_description = document.getElementById('edit-todo-desc');
-      updated_description.value = todo_data.getDescription();
-      my_info.updated_description = updated_description.value;
-      const updated_due_date = document.getElementById('edit-todo-due-date');
-      updated_due_date.value = todo_data.getDueDate();
-      my_info.updated_due_date = updated_due_date.value;
-      const updated_priority = document.getElementById('edit-todo-priority');
-      updated_priority.value = todo_data.getPriority();
-      my_info.updated_priority = updated_priority.value;
+      myInfo.updatedTitle = updatedTitle.value;
+      const updatedDescription = document.getElementById('edit-todo-desc');
+      updatedDescription.value = todoData.getDescription();
+      myInfo.updatedDescription = updatedDescription.value;
+      const updatedDueDate = document.getElementById('edit-todo-due-date');
+      updatedDueDate.value = todoData.getDueDate();
+      myInfo.updatedDueDate = updatedDueDate.value;
+      const updatedPriority = document.getElementById('edit-todo-priority');
+      updatedPriority.value = todoData.getPriority();
+      myInfo.updatedPriority = updatedPriority.value;
     };
   });
 
   document.getElementById('submit-edit-todo').onclick = () => {
-    const this_project = app.getProjectByTitle(my_info.this_project.getTitle());
-    const { todo_data } = my_info;
+    const thisProject = app.getProjectByTitle(myInfo.thisProject.getTitle());
+    const { todoData } = myInfo;
 
-    const updated_title = document.getElementById('edit-todo-title').value;
-    const updated_description = document.getElementById('edit-todo-desc').value;
-    const updated_due_date = document.getElementById('edit-todo-due-date').value;
-    const updated_priority = document.getElementById('edit-todo-priority').value;
+    const updatedTitle = document.getElementById('edit-todo-title').value;
+    const updatedDescription = document.getElementById('edit-todo-desc').value;
+    const updatedDueDate = document.getElementById('edit-todo-due-date').value;
+    const updatedPriority = document.getElementById('edit-todo-priority').value;
 
-    console.log(todo_data.getTitle(), updated_title);
-    this_project.removeTodoByTitle(todo_data.getTitle());
-    const new_to_do = createTodo(
-      updated_title,
-      updated_description,
-      updated_due_date,
-      updated_priority,
+    thisProject.removeTodoByTitle(todoData.getTitle());
+    const newToDo = createTodo(
+      updatedTitle,
+      updatedDescription,
+      updatedDueDate,
+      updatedPriority,
     );
-    console.log(new_to_do);
-    this_project.addTodo(new_to_do);
-
-    console.log(this_project.getTodos());
+    thisProject.addTodo(newToDo);
 
     const modal = document.getElementById('editTodoModal');
     modal.style.display = 'none';
@@ -147,7 +146,7 @@ const clickingEvents = () => {
     document.querySelectorAll('.project-todos > .todo > .todo-title')
       .forEach((project) => {
         const myParent = project.parentElement.parentElement;
-        if (project.innerText == updated_title) {
+        if (project.innerText === updatedTitle) {
           myParent.classList.add('display-block');
         }
       });

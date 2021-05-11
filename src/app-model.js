@@ -10,7 +10,7 @@ function createApp() {
   const getProjectByTitle = (projectTitle) => {
     let thisProject;
     projects.forEach((project) => {
-      if (project.getTitle() == projectTitle) {
+      if (project.getTitle() === projectTitle) {
         thisProject = project;
       }
     });
