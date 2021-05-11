@@ -1,11 +1,10 @@
-import app from "./app-model";
-import createProject from "./project-model";
+import app from './app-model';
+import createProject from './project-model';
 
-import createTodo from "./todo-model";
+import createTodo from './todo-model';
 
 const turnToJson = () => {
   const myJsonData = {};
-  // let myProjects = {}
 
   const allProjects = app.getProjects();
 
@@ -37,29 +36,27 @@ const turnToJson = () => {
     myJsonData[project.getTitle()] = myProject;
   });
 
-  localStorage.setItem("app", JSON.stringify(myJsonData));
-
-  // console.log(myJsonData);
+  localStorage.setItem('app', JSON.stringify(myJsonData));
 };
 
+/* eslint-disable */
 const turnToData = (myApp) => {
   app.removeProjectByTitle("DEFAULT");
   for (const project in myApp) {
-    console.log(`${project}: ${myApp[project]}`);
-    let new_project = createProject(project);
+    const newProject = createProject(project);
     for (const todo in myApp[project].todos) {
-      let todoObj = myApp[project].todos[todo];
-      console.log(todoObj);
-      let new_todo = createTodo(
+      const todoObj = myApp[project].todos[todo];
+      const newTodo = createTodo(
         todoObj.title,
         todoObj.description,
         todoObj.dueDate,
         todoObj.priority
       );
-      new_project.addTodo(new_todo);
+      newProject.addTodo(newTodo);
     }
-    app.addProject(new_project);
+    app.addProject(newProject);
   }
 };
+/* eslint-disable */
 
 export { turnToJson, turnToData };

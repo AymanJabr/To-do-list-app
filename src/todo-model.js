@@ -16,7 +16,7 @@ const createTodo = (title, description, dueDate, priority, status = false) => {
   const getDueDate = () => {
     let dueDate;
     if (myStatus === true) {
-      dueDate = "Completed!";
+      dueDate = 'Completed!';
     } else {
       dueDate = myDueDate;
     }

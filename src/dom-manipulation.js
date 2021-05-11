@@ -1,12 +1,12 @@
 /* eslint-disable import/no-cycle */
-import app from "./app-model";
-import clickingEvents from "./clicking-events";
-import { turnToJson } from "./turn-to-json";
+import app from './app-model';
+import clickingEvents from './clicking-events';
+import { turnToJson } from './turn-to-json';
 /* eslint-enable import/no-cycle */
 
-const insertAllProjects = (recreatePage = false) => {
-  const projectsDiv = document.getElementById("projects");
-  projectsDiv.innerHTML = "";
+const insertAllProjects = () => {
+  const projectsDiv = document.getElementById('projects');
+  projectsDiv.innerHTML = '';
   app.getProjects().forEach((project, index) => {
     const projectDiv = `
         <div class="project"><div class="project-wrapper"><span class="project-title">${project.getTitle()}</span>
@@ -16,7 +16,7 @@ const insertAllProjects = (recreatePage = false) => {
         </div>`;
     projectsDiv.innerHTML += projectDiv;
     const projectTodosDiv = document.getElementsByClassName(
-      `project-${index}-todos`
+      `project-${index}-todos`,
     )[0];
 
     project.getTodos().forEach((todo) => {
