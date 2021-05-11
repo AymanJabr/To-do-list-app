@@ -1,7 +1,7 @@
 # To-Do-List
 Simple To-Do-List, using Node and Webpack functionality, In this project you have the ability to add projects, add tasks that you have to do to a project, including its description, date to be done, and priority.  
 
-[Screenshot](./assets/screenshot.JPG)
+![screenshot](./assets/screenshot.JPG)
 
 [See a live demo](https://aymanjabr.github.io/To-do-list-app/)
 
