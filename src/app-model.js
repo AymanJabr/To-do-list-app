@@ -1,3 +1,5 @@
+import { turnToData } from './turn-to-json';
+
 function createApp() {
   let projects = [];
 
@@ -28,6 +30,6 @@ function createApp() {
 const myProjects = JSON.parse(localStorage.getItem('projects'));
 
 const app = createApp();
-if (myProjects !== null) app.setProjects(myProjects);
+if (myProjects !== null) turnToData();
 
 export default app;

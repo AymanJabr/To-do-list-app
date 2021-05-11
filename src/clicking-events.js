@@ -2,6 +2,7 @@
 import createProject from './project-model';
 import createTodo from './todo-model';
 import app from './app-model';
+import { turnToJson } from './turn-to-json';
 import insertAllProjects from './dom-manipulation';
 import insertModal from './modal';
 /* eslint-enable import/no-cycle */
@@ -17,8 +18,8 @@ const clickingEvents = () => {
     if (title !== '') {
       const newProject = createProject(title);
       app.addProject(newProject);
-      console.log(app.getProjects(), JSON.stringify(app.getProjects()));
-      localStorage.setItem('projects', JSON.stringify(app.getProjects()));
+      turnToJson();
+      insertAllProjects();
     }
   };
 
@@ -39,8 +40,7 @@ const clickingEvents = () => {
       const priority = document.getElementById('todo-priority').value;
       const todo = createTodo(title, description, dueDate, priority);
       app.getProjects()[button.id].addTodo(todo);
-      console.log(app.getProjects(), JSON.stringify(app.getProjects()));
-      localStorage.setItem('projects', JSON.stringify(app.getProjects()));
+      turnToJson();
 
       document.getElementById('newTodoModal').style.display = 'none';
       insertAllProjects();
@@ -139,8 +139,7 @@ const clickingEvents = () => {
       updatedPriority,
     );
     thisProject.addTodo(newToDo);
-    console.log(app.getProjects(), JSON.stringify(app.getProjects()));
-    localStorage.setItem('projects', JSON.stringify(app.getProjects()));
+    turnToJson();
 
     const modal = document.getElementById('editTodoModal');
     modal.style.display = 'none';

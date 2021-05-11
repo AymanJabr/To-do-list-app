@@ -11,6 +11,8 @@ const createTodo = (title, description, dueDate, priority, status = false) => {
 
   const getPriority = () => myPriority;
 
+  const getStatus = () => myStatus;
+
   const getDueDate = () => {
     let dueDate;
     if (myStatus === true) {
@@ -37,6 +39,7 @@ const createTodo = (title, description, dueDate, priority, status = false) => {
     changePriority,
     getTitle,
     getDescription,
+    getStatus,
     getDueDate,
     toggleStatus,
   };
