@@ -3,9 +3,12 @@ Simple To-Do-List, using Node and Webpack functionality, In this project you hav
 
 [Screenshot](./assets/screenshot.JPG)
 
+[See a live demo](https://aymanjabr.github.io/To-do-list-app/)
+
 ## Built With
 
 - JavaScript
+- Webpack
 
 ## Getting Started
 
@@ -14,15 +17,15 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 - Node
+- Webpack
 
 ### Setup
 
 ```run `npm install` to install all required node modules
 
-
 ## Usage
 
-double click on  `index.html` to open project in new browser window
+double click on  `dist/index.html` to open project in new browser window
 
 ## AUTHORS
 
