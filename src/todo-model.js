@@ -45,4 +45,4 @@ const createTodo = (title, description, dueDate, priority, status = false) => {
     toggleStatus,
   };
 };
-module.exports = createTodo
+module.exports = createTodo;

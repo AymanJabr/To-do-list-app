@@ -33,4 +33,4 @@ function createProject(title) {
   };
 }
 
-module.exports = createProject
+module.exports = createProject;

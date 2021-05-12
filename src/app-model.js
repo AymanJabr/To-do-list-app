@@ -40,4 +40,4 @@ function createApp() {
 
 const app = createApp();
 
-module.exports = app
+module.exports = app;
