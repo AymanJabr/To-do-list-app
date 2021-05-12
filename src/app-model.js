@@ -38,7 +38,6 @@ function createApp() {
   };
 }
 
-// console.log(myApp);
 const app = createApp();
 
-export default app;
+module.exports = app;

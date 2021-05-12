@@ -9,6 +9,7 @@ Simple To-Do-List, using Node and Webpack functionality, In this project you hav
 
 - JavaScript
 - Webpack
+- Jest
 
 ## Getting Started
 
@@ -18,14 +19,18 @@ To get a local copy up and running follow these simple example steps.
 
 - Node
 - Webpack
+- Jest
 
 ### Setup
 
-```run `npm install` to install all required node modules
+```run `npm install` to install all required node modules```
 
 ## Usage
 
 double click on  `dist/index.html` to open project in new browser window
+
+## Test
+```run `npm test` to run all unit tests```
 
 ## AUTHORS
 
